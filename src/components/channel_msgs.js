@@ -4,6 +4,7 @@ import firebase from '../firebase'
 
 
 const ChannelMsg=(props)=>{
+let mount=0;     
 
 useEffect(()=>{
     let server_id=props.location.pathname
@@ -30,7 +31,7 @@ useEffect(()=>{
         })
 
 
-     
+    
    
     const msgs=firebase.database().ref('msg/'+server_id);
 
@@ -47,6 +48,12 @@ useEffect(()=>{
                
             }
 
+            if(mount===0)
+            {
+                console.log("first time");
+                mount=1;
+            }
+            console.log("mount",mount);
            
             setMsgs(msgData);
             
@@ -73,7 +80,7 @@ const getMgs=()=>{
         return(
                      
               <div key={key}>
-               <p>{item.author_name}:{item.text}<br/>Url:{item.url}</p>
+               <p>{item.author_name}-<a href={item.url}>{item.created_at}</a> <br/>{item.text}</p>
                <hr/>
                </div>
           )

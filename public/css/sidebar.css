@@ -62,3 +62,18 @@
     background-color:#fed !important;
 }
 
+.msgdiv
+{
+        padding: 10px;
+    /* background: #ccc; */
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+
+}
+
+.checkboxsel
+{
+    padding:10px;
+    margin-bottom:2px;
+    background:#ccc;
+}

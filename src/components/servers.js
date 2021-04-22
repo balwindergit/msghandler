@@ -47,7 +47,11 @@ class ServersComponent extends Component{
 
                     ))
 
-                 }      
+                 }   
+
+                <div style={{textAlign:"center"}}>
+                  <Link to="/important_messages" className="btn btn-primary">Import Messages</Link> 
+                </div>
             </>
             
         )

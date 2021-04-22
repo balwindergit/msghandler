@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Servers from './components/servers'
 import ChannelMsg from './components/channel_msgs'
+import ImportantMsg from './components/important_messages'
 import {BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 
 const firebaseConfig = {
@@ -22,9 +23,10 @@ function App() {
       
     <Router>  
        <Switch>
-         <Route  path="/" exact component={Servers}/>
+         <Route  path="/important_messages" exact component={ImportantMsg}/>
          <Route  path="/:id" exact component={ChannelMsg}/>
-     
+         <Route  path="/" exact component={Servers}/>
+        
          
          </Switch> 
         </Router>

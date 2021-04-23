@@ -37,7 +37,7 @@ useEffect(()=>{
         msgs.on("value",snapshot=>{
         if(isMounted)
         {    
-            play();
+            
             const msgData=[];
             let messages=snapshot.val();
             let imprtCount=0;

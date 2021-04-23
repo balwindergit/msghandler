@@ -76,7 +76,7 @@ useEffect(()=>{
                 limprtCount=imprtCount;
                 lunisCount=unisCount;
                 lanlsisCount=anlsisCount;
-                
+                console.log("first tiem");
                 mount++
             }
             else
@@ -119,6 +119,7 @@ useEffect(()=>{
                 lanlsisCount=anlsisCount;
 
                  mount++
+                 console.log(mount)
               
             }
 
@@ -132,7 +133,7 @@ useEffect(()=>{
         console.log("umounting the code")
         isMounted = false };
 
-},[]);
+},[play]);
 
 
 

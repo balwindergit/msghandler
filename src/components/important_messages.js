@@ -37,12 +37,13 @@ useEffect(()=>{
         msgs.on("value",snapshot=>{
         if(isMounted)
         {    
+            play();
             const msgData=[];
             let messages=snapshot.val();
             let imprtCount=0;
             let unisCount=0;
             let anlsisCount=0;
-
+            
             for(let i in messages)
             {
                 for(let j in messages[i])
@@ -83,8 +84,10 @@ useEffect(()=>{
              
                 if(imprtCount>limprtCount)
                 {
+                    console.log("in condition");
                     if(impRef.current)
                     {
+                        console.log("in play");
                         play();
                     }
 
@@ -93,6 +96,8 @@ useEffect(()=>{
                 {
                     if(unswmpRef.current)
                     {
+                        console.log("in condition");
+                        console.log("in play");
                         play();
                     }
                     
@@ -106,9 +111,9 @@ useEffect(()=>{
                     
                 }
                 console.log("current");
-                console.log(limprtCount,lunisCount,lanlsisCount);
-                console.log("last");
                 console.log(imprtCount,unisCount,anlsisCount);
+                console.log("last");
+                console.log(limprtCount,lunisCount,lanlsisCount);
                 limprtCount=imprtCount;
                 lunisCount=unisCount;
                 lanlsisCount=anlsisCount;

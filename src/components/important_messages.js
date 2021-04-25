@@ -35,6 +35,7 @@ useEffect(()=>{
 
 
         msgs.on("value",snapshot=>{
+        console.log("isMounted",isMounted)
         if(isMounted)
         {    
             
@@ -88,7 +89,7 @@ useEffect(()=>{
                     if(impRef.current)
                     {
                         console.log("in play");
-                        play();
+                        play();    
                     }
 
                 }
@@ -137,15 +138,15 @@ useEffect(()=>{
 
 
 
-const checkStat=()=>{
-    console.log("important check ",important_check)
+const soundPlay=()=>{
+   play();
 }
 
 
 
     return(
        <>
-     
+        <button onClick={soundPlay}>Play Sound</button>
        <div>
        <p className="checkboxsel">
             <label>Important/Trade Channels</label>&nbsp;&nbsp;<input type="checkbox" checked={important_check} onChange={(e)=>{

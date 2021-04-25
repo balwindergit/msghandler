@@ -31,7 +31,7 @@ useEffect(()=>{
     let isMounted = true;
     
    
-    const msgs=firebase.database().ref('msg/');
+    const msgs=firebase.database().ref('msg')   ;
 
 
         msgs.on("value",snapshot=>{
@@ -44,7 +44,7 @@ useEffect(()=>{
             let imprtCount=0;
             let unisCount=0;
             let anlsisCount=0;
-            
+          
             for(let i in messages)
             {
                 for(let j in messages[i])
@@ -124,8 +124,8 @@ useEffect(()=>{
               
             }
 
-                        
-           
+             msgData.sort((a, b) => b.server_time_created.localeCompare(a.server_time_created));           
+           //msgData.reverse();
             setMsgs(msgData);
         } 
         })

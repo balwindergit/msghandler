@@ -124,7 +124,7 @@ useEffect(()=>{
               
             }
 
-             msgData.sort((a, b) => b.server_time_created.localeCompare(a.server_time_created));           
+           msgData.sort((a, b) => b.server_time_created.localeCompare(a.server_time_created));         
            //msgData.reverse();
             setMsgs(msgData);
         } 
@@ -171,6 +171,7 @@ const soundPlay=()=>{
                 <p style={{color:"crimson"}}>{item.server_name}|{item.channel_name}</p>
                 <p>{item.author_name}:<a href={item.url}>{item.server_time_created}</a></p>
                 <p>{item.text}</p>
+                {item.attachements?<a href={item.attachements} target="_blank"><img src={item.attachements} style={{width:"500px"}}/></a>:''}
             </div>
 
         )))

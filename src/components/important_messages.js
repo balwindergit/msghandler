@@ -86,20 +86,23 @@ useEffect(()=>{
              
                 if(imprtCount>limprtCount)
                 {
-                    console.log("in condition");
+                    console.log("in condition important");
+                    console.log(impRef.current);
                     if(impRef.current)
                     {
-                        console.log("in play");
+                        console.log("in play important");
                         play();    
                     }
 
                 }
                 if(unisCount>lunisCount)
                 {
+                     console.log("in condition uniswap");
+                     console.log(unswmpRef.current)
                     if(unswmpRef.current)
                     {
-                        console.log("in condition");
-                        console.log("in play");
+                       
+                        console.log("in play uniswap");
                         play();
                     }
                     

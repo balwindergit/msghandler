@@ -9,6 +9,7 @@ const ImportantMsg=(props)=>{
    const [important_check,setImportCheck]=useState(true)
    const [uniswap_check,setUniswapCheck]=useState(true)
    const [analysis_check,setAnayCheck]=useState(true)
+   const [currentTime,setcurrentTime]=useState('    ')
    const [play] = useSound(boopSfx);
 
    const impRef = useRef();
@@ -17,7 +18,7 @@ const ImportantMsg=(props)=>{
    const unswmpRef = useRef();
    unswmpRef.current = uniswap_check;
 
-    const anlsRef = useRef();
+   const anlsRef = useRef();
    anlsRef.current = analysis_check;
     
    
@@ -29,7 +30,7 @@ useEffect(()=>{
     let lunisCount=0
     let lanlsisCount=0
     let isMounted = true;
-    
+  
    
     const msgs=firebase.database().ref('msg')   ;
 
@@ -64,7 +65,7 @@ useEffect(()=>{
                         {
                             anlsisCount++;    
                         }
-
+                 
                         msgData.push(messages[i][j]);
                     }
                     
@@ -142,11 +143,24 @@ const soundPlay=()=>{
    play();
 }
 
+const readNotification=()=>{
+    let date;
+    date = new Date();
+    date = date.getFullYear() + '-' +
+        ('00' + (date.getMonth()+1)).slice(-2) + '-' +
+        ('00' + date.getDate()).slice(-2) + ' ' + 
+        ('00' + date.getHours()).slice(-2) + ':' + 
+        ('00' + date.getMinutes()).slice(-2) + ':' + 
+        ('00' + date.getSeconds()).slice(-2);
+    
+    setcurrentTime(date.toString());
+}
 
 
     return(
        <>
         <button onClick={soundPlay}>Play Sound</button>
+         <button onClick={readNotification}>Read</button>
        <div>
        <p className="checkboxsel">
             <label>Important/Trade Channels</label>&nbsp;&nbsp;<input type="checkbox" checked={important_check} onChange={(e)=>{
@@ -167,7 +181,7 @@ const soundPlay=()=>{
         (msgs.length>0)?
         
         msgs.map((item,index)=>((
-            <div className="msgdiv" key={index}>
+            <div className={"msgdiv "+(item.server_time_created>currentTime?'new':'')} key={index}>
                 <p style={{color:"crimson"}}>{item.server_name}|{item.channel_name}</p>
                 <p>{item.author_name}:<a href={item.url}>{item.server_time_created}</a></p>
                 <p>{item.text}</p>
